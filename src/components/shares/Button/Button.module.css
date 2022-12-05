@@ -1,0 +1,25 @@
+
+:root{
+    --BtnBackground : #0077ff;
+    --white : #FFF;
+}
+.buttonStyle{
+    background: var(--BtnBackground);
+    padding : 10px 20px;
+    border: none;
+    outline:none;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin: 0 auto;
+    font-size:  16px;
+    border-radius: 15px;
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+
+} 
+.buttonStyle:hover{
+    background: #014ac9;
+}

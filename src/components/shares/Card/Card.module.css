@@ -1,0 +1,26 @@
+
+:root {
+    --cardBackgroundColor: #1D1D1D;
+    --dimWhite : #C4C5C5
+}
+.card{
+    width :500px;
+    max-width: 90%;
+    margin: 0 auto;
+    min-height: 300px;
+    background :var( --cardBackgroundColor);
+    padding : 30px;
+    border-radius :25px;
+    text-align: center;
+}
+.headingWrapper{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:30px
+}
+.heading{
+    font-size : 22px;
+    font-weight : bold;
+    margin-left: 10px;
+}

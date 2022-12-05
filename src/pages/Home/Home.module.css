@@ -1,0 +1,23 @@
+
+:root {
+    --dimWhite : #C4C5C5;
+    --blueColor : #0077ff
+}
+.cardWrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    /* margin-top: 6rem; */
+}
+.text{
+    font-size : 22px;
+    line-height :1.6;
+   color : var(--dimWhite);
+   margin-bottom: 30px;
+}
+.signInWrapper{
+    margin-top: 20px;
+}
+.hasInvite{
+color :var(--blueColor)
+}
