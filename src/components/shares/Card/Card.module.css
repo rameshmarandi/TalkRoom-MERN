@@ -4,14 +4,17 @@
     --dimWhite : #C4C5C5
 }
 .card{
-    width :500px;
+    width :450px;
     max-width: 90%;
     margin: 0 auto;
-    min-height: 300px;
+    min-height: 150px;
     background :var( --cardBackgroundColor);
     padding : 30px;
     border-radius :25px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
 }
 .headingWrapper{
     display: flex;

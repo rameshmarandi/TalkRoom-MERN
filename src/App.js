@@ -5,12 +5,19 @@ import {
   BrowserRouter,
   Switch,
   Route,
+  Redirect,
 
 } from "react-router-dom";
-import Register from './pages/Register/Register';
 import Navigation from './components/shares/Navigation/Navigation';
-import Login from './pages/Login/Login';
+import Authenticate from './pages/Authenticate/Authenticate';
+import Activate from './pages/Activate/Activate';
+import Rooms from './pages/Rooms/Rooms';
 
+
+const isAuth = false
+const user = {
+  activated :false
+}
 
 function App() {
 
@@ -21,15 +28,21 @@ function App() {
         <Navigation />
         <Switch>
 
-          <Route path="/" exact>
+          <GuestRoute path="/" exact>
             <Home />
-          </Route>
-          <Route path="/register" exact>
-            <Register />
-          </Route>
-          <Route path="/login" exact>
-            <Login />
-          </Route>
+          </GuestRoute>
+          <GuestRoute path="/authenticate" >
+            <Authenticate />
+          </GuestRoute>       
+
+          <SemiProtectedRoute path="/activate">
+            <Activate/>
+          </SemiProtectedRoute>
+
+          <ProtectedRoute path="/rooms">
+
+            <Rooms/>
+          </ProtectedRoute>
         </Switch>
       </BrowserRouter>
 
@@ -39,4 +52,64 @@ function App() {
   );
 }
 
+const GuestRoute = ({ children, ...rest }) => {
+  return <Route {...rest}
+    render={({ location }) => {
+      return isAuth ? <Redirect
+        to={{
+          pathname: "/rooms",
+          state: { from: location }
+        }}
+      /> : (children )
+    }}
+  ></Route>
+}
+
+
+const SemiProtectedRoute = ({children, ...rest})=>{
+  return(
+    <Route {...rest}
+    render = {({location}) =>{
+      return(
+        !isAuth ? <Redirect 
+        to={{
+          pathname :"/",
+          state : {from : location}
+        }}
+        />  : 
+        isAuth && !user.activated ? (children) : 
+        <Redirect 
+        to={{
+          pathname :"/rooms",
+          state : {from : location}
+        }}
+        />  
+      )
+    }}
+    ></Route>
+  )
+}
+const ProtectedRoute = ({children, ...rest})=>{
+  return(
+    <Route {...rest}
+    render = {({location}) =>{
+      return(
+        !isAuth ? <Redirect 
+        to={{
+          pathname :"/",
+          state : {from : location}
+        }}
+        />  : 
+        isAuth && !user.activated ?
+        <Redirect 
+        to={{
+          pathname :"/activate",
+          state : {from : location}
+        }}
+        />  : (children)
+      )
+    }}
+    ></Route>
+  )
+}
 export default App;

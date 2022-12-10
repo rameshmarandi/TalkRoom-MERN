@@ -1,0 +1,13 @@
+:root{
+    --BtnBackground : #323232;
+    --white : #FFF;
+}
+.input{
+    background-color:#323232;;
+    padding : 10px 20px;
+    width :200px;
+    color:#FFF;;
+    font-size:  16px;
+    border-radius: 10px;
+    outline:none;
+}

@@ -1,0 +1,41 @@
+:root{
+    --BtnBackground : #0077ff;
+    --white : #FFF;
+}
+.cardWrapper{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin-top: 2rem;
+}
+.buttonWrapper{
+    display: flex;
+    justify-content:flex-end;
+    margin-bottom:1rem;
+}
+.tabBottom{
+    height : 50px;
+    width :50px;
+    background-color:#262626;
+    border-radius: 10px;
+    outline:none;
+    cursor: pointer;
+    transition : 0.3s all ease-in-out;
+    
+}
+.tabBottom:nth-child(1){
+    margin-right: 15px;
+}
+.activeTab{
+    background-color:#0077ff
+}
+.actionButtonWrapper{
+margin-top:23px
+}
+.paragphyWrapper{
+    color:#c4c5c5;
+    width :70%;  
+    margin: 0 auto;
+    margin-top:20px;
+    line-height: 2;
+}
